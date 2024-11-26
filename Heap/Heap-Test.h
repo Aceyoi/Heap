@@ -51,6 +51,9 @@ void testcheck(){
     assert(testheap.getMax() == 5);
     assert(testheap.extractMax() == 5);
 
+    assert(testheap.getMax() == -1);
+    assert(testheap.extractMax() == -1);
+
     assert(testheap.isEmpty() == true);
     assert(testheap.size() == 0);
 

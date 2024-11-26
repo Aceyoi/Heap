@@ -6,7 +6,9 @@
 #include <stdexcept>
 
 using namespace std;
-
+// Свойства кучи:
+// Приоритет над предком
+// Завершённая дерево
 
 // Шаблонный класс кучи
 template <typename T>
@@ -52,7 +54,11 @@ public:
 
     // Извлечение максимального элемента
     T extractMax() {
-        if (heap.empty()) throw out_of_range("КУЧА ПУСТА!");
+        //if (heap.empty()) throw out_of_range("КУЧА ПУСТА!");
+        if (heap.empty() == true)
+        {
+            return -1;
+        }
 
         T max = heap[0];
         heap[0] = heap.back();
@@ -63,7 +69,10 @@ public:
 
     // Извлечение минимального элемента
     T extractMin() {
-        if (heap.empty()) throw out_of_range("КУЧА ПУСТА!");
+        if (heap.empty() == true)
+        {
+            return -1;
+        }
 
         T min = heap[0];
         heap[0] = heap.back();
@@ -74,13 +83,21 @@ public:
 
     // Получение максимального элемента
     T getMax() const {
-        if (heap.empty()) throw out_of_range("КУЧА ПУСТА!");
+        if (heap.empty() == true)
+        {
+            return -1;
+        }
+
         return heap[0];
     }
 
     // Получение минимального элемента
     T getMin() const {
-        if (heap.empty()) throw out_of_range("КУЧА ПУСТА!");
+        if (heap.empty() == true)
+        {
+            return -1;
+        }
+
         int size = heap.size();
         return heap[size-1];
     }
