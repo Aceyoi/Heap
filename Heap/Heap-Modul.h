@@ -8,6 +8,7 @@
 
 using namespace std;
 
+// Сложность O(logn)
 // Метод для перемещения элемента вниз
 template <typename T>
 void siftDown(vector<T>& heap, size_t index, size_t size) {
@@ -28,6 +29,7 @@ void siftDown(vector<T>& heap, size_t index, size_t size) {
     }
 }
 
+// Сложность O(nlogn)
 // Сортировка кучей
 template <typename T>
 void heapsort(vector<T>& heap) {
@@ -38,13 +40,17 @@ void heapsort(vector<T>& heap) {
     for (int i = n / 2 - 1; i >= 0; --i) {
         siftDown(heap, i, n);
     }
-
+    // Из-за свойства кучи, максимальный  элемент всегда будет первым
+    // После перестроения кучи цикл повторяется 
     // Извлечение максимальных элементов один за другим и перемещение их в конец массива
     for (size_t i = n - 1; i > 0; --i) {
         swap(heap[0], heap[i]);  // Меняем местами корень и последний элемент
         siftDown(heap, 0, i);  // Восстанавливаем кучу на оставшихся элементах
     }
 }
+
+
+
 
 // Функция для добавления и отображения всех элементов
 template <typename T>
