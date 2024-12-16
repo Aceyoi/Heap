@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int main(){
+int main() {
     setlocale(LC_ALL, "Russian");
 
     testcheck();
@@ -38,7 +38,7 @@ int main(){
 
     cout << endl << "Размер кучи: " << heap.size() << endl << endl;
 
-    cout  << "Максимальный элемент: " << heap.getMax() << endl << endl;
+    cout << "Максимальный элемент: " << heap.getMax() << endl << endl;
 
     cout << "Извлекает максимальный элемент: " << heap.extractMax() << endl << endl;
 

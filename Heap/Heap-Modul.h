@@ -30,7 +30,7 @@ void siftDown(vector<T>& heap, size_t index, size_t size) {
 }
 
 // Сложность O(nlogn)
-// Сортировка кучей
+// Сортировка кучей от наименьшего к наибольшему 
 template <typename T>
 void heapsort(vector<T>& heap) {
     // Построение кучи
@@ -48,7 +48,6 @@ void heapsort(vector<T>& heap) {
         siftDown(heap, 0, i);  // Восстанавливаем кучу на оставшихся элементах
     }
 }
-
 
 
 

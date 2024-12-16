@@ -10,10 +10,9 @@
 using namespace std;
 
 /// проверка данных
-void testcheck(){
+void testcheck() {
 
     MaxHeap<int> testheap;
-    vector<int> testheapmass = { 30,10,5,20,50,25,45,35,40 };
 
     testheap.insert(30);
     testheap.insert(10);
@@ -51,8 +50,21 @@ void testcheck(){
     assert(testheap.getMax() == 5);
     assert(testheap.extractMax() == 5);
 
-    assert(testheap.getMax() == -1);
-    assert(testheap.extractMax() == -1);
+    try { // Проверка извлечение максимального элемента если куча пуская
+        testheap.extractMax(); // Вызов метода, который вызовет исключение
+        assert(0); // Если исключение не вызванно
+    }
+    catch (...) { // Обработчик исключения
+        cout << "" << endl;
+    }
+
+    try { // Проверка Получение максимального элемента если куча пуская
+        testheap.getMax(); // Вызов метода, который вызовет исключение
+        assert(0); // Если исключение не вызванно
+    }
+    catch (...) { // Обработчик исключения
+        cout << "" << endl;
+    }
 
     assert(testheap.isEmpty() == true);
     assert(testheap.size() == 0);
@@ -67,8 +79,21 @@ void testcheck(){
     assert(testheap.getMax() == 40);
     assert(testheap.extractMax() == 40);
 
-    assert(sort_check(testheapmass) == false);
-    heapsort(testheapmass);
-    assert(sort_check(testheapmass) == true);
+    // Проверка сортировки массива
 
+    vector<int> testheapmass = { 30,10,5,20,50,25,45,35,40 };
+    vector<int> testheapmassbad = { 50,45,40,35,30,25,20,15,10,5 };
+    vector<int> testheapmassgood = { 5,10,15,20,25,30,35,40,45,50 };
+
+    assert(sort_check(testheapmassgood) == true);
+    assert(sort_check(testheapmassbad) == false);
+    assert(sort_check(testheapmass) == false);
+
+    heapsort(testheapmassgood);
+    heapsort(testheapmassbad);
+    heapsort(testheapmass);
+
+    assert(sort_check(testheapmassgood) == true);
+    assert(sort_check(testheapmassbad) == true);
+    assert(sort_check(testheapmass) == true);
 }
